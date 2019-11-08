@@ -20,7 +20,7 @@ def get_all_stars():
     output.append({'send_title' : s['send_title'], 'send_acro' : s['send_acro'], 'send_explanation' : s['send_explanation']})
   return jsonify({'result' : output})
 
-@app.route('/star/', methods=['GET'])
+@app.route('/star/<name>', methods=['GET'])
 def get_one_star(name):
   star = mongo.db.sendlist
   s = star.find_one({'send_acro' : name})
